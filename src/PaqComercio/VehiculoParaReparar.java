@@ -1,6 +1,6 @@
 package PaqComercio;
 
-public class VehiculoParaReparar extends Vehiculo{
+public class VehiculoParaReparar extends Vehiculo implements Cloneable{
     private String averia;
     private Boolean reparado;
     private int prioridad;
@@ -35,6 +35,16 @@ public class VehiculoParaReparar extends Vehiculo{
 
     public String getAveria() {
         return averia;
+    }
+
+
+    public VehiculoParaReparar Clone() throws CloneNotSupportedException {
+        VehiculoParaReparar clon = (VehiculoParaReparar) super.clone();
+        clon.setReparado(this.getReparado());
+        clon.setAveria(this.getAveria());
+        clon.setPrioridad(this.getPrioridad());
+
+        return clon;
     }
 
     public VehiculoParaReparar(VehiculoParaReparar veh){

@@ -1,6 +1,6 @@
 package PaqComercio;
 
-public class Empleado {
+public class Empleado implements  Cloneable {
     public String NombreE;
     public String DireccionE;
     public int telefonoE;
@@ -24,4 +24,20 @@ public class Empleado {
     public String getEmailE() {return emailE;}
     public String getFechaInicio() {return FechaInicio;}
     public String getNombreE() {return NombreE;}
+
+    @Override
+    public String toString(){
+        return "El empleado "+ NombreE + " con direccion "+ DireccionE + ", telefono "+ telefonoE +" y email "+ emailE +
+                " empezo: "+ FechaInicio+" tiene un cargo" + cargo +" con un salario de "+ salario;
+    }
+
+
+    public boolean equals(Empleado empl) {
+        return super.equals(empl);
+    }
+
+    public Empleado clone() throws CloneNotSupportedException{
+        return (Empleado) super.clone();
+    }
 }
+

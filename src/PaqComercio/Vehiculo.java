@@ -55,4 +55,8 @@ public abstract class Vehiculo implements Cloneable{
         this.marca = clon.marca;
         this.matricula= clon.matricula;
     }
+    public Vehiculo clone() throws CloneNotSupportedException{
+        return (Vehiculo) super.clone();
+
+    }
 }

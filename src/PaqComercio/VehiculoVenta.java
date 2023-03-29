@@ -1,6 +1,6 @@
 package PaqComercio;
 
-public class VehiculoVenta extends Vehiculo{
+public class VehiculoVenta extends Vehiculo implements Cloneable{
     private double precio;
     private int descuento;
 
@@ -32,5 +32,13 @@ public class VehiculoVenta extends Vehiculo{
         super.setModelo(v.getModelo());
         this.descuento = v.getDescuento();
         this.precio = v.getPrecio();
+
+    }
+    public VehiculoVenta clone() throws CloneNotSupportedException{
+        VehiculoVenta clon = (VehiculoVenta) super.clone();
+        clon.setPrecio(this.getPrecio());
+        clon.setDescuento(this.getDescuento());
+
+        return clon;
     }
 }

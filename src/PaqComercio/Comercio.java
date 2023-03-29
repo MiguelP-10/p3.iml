@@ -4,7 +4,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Comercio {
+public abstract class Comercio implements Cloneable{
     public String nombre;
     public String Direccion;
     public String cif;
@@ -73,9 +73,26 @@ public class Comercio {
         return mes+1;
     }
 
+
     public void actualizarVentas( int mes, int dia,double n){
         this.VentasDiarias[dia][mes]=n;
     }
+
+    public String toStringStock(){
+        for(int i=0;i<stock.length;i++){
+            return "el stock es " + stock[i];
+        }
+        return null;
+    }
+    public String toStringVentas(){
+        for(int i=0;i<12;i++){
+            for(int j=0;j<31;j++){
+                return "Las ventas del dia" + (j+1) + " y del mes"+ (i+1) + " son "+VentasDiarias[i][j];
+            }
+        }
+        return null;
+    }
+
     public Comercio duplicar(Comercio Copia){
 
 
@@ -113,6 +130,10 @@ public class Comercio {
 
         return Copia;
 
+    }
+
+    public Comercio clone() throws CloneNotSupportedException{
+        return (Comercio) super.clone();
     }
 
 }
